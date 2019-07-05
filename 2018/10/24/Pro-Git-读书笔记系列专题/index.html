@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="版本控制,Git,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="有效阅读是输入思想、写出笔记、总结脉络、输出见解的过程。            大约7000万年前，人类和老鼠有共同的祖先并共享99%的基因和80%的遗传物质。在接下来的6500万年间，人类这个物种和其他物种并没有太大的区别，直到500万年前，在人类身上的Fox P2基因发生突变，使得人类具有了语言能力。这大大提高了人类的协作效率。而Git的发明让人类在协作方式上又进一步获得飞跃。如果你是一个程">
+<meta name="keywords" content="版本控制,Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pro Git 读书笔记系列专题">
+<meta property="og:url" content="http://yoursite.com/2018/10/24/Pro-Git-读书笔记系列专题/index.html">
+<meta property="og:site_name" content="无聊的生命 死也不要！">
+<meta property="og:description" content="有效阅读是输入思想、写出笔记、总结脉络、输出见解的过程。            大约7000万年前，人类和老鼠有共同的祖先并共享99%的基因和80%的遗传物质。在接下来的6500万年间，人类这个物种和其他物种并没有太大的区别，直到500万年前，在人类身上的Fox P2基因发生突变，使得人类具有了语言能力。这大大提高了人类的协作效率。而Git的发明让人类在协作方式上又进一步获得飞跃。如果你是一个程">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/10/img/1.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/img/2.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/10/img/3.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/img/4.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/img/5.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/img/6.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/img/7.png">
+<meta property="og:updated_time" content="2019-07-04T11:55:16.003Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Pro Git 读书笔记系列专题">
+<meta name="twitter:description" content="有效阅读是输入思想、写出笔记、总结脉络、输出见解的过程。            大约7000万年前，人类和老鼠有共同的祖先并共享99%的基因和80%的遗传物质。在接下来的6500万年间，人类这个物种和其他物种并没有太大的区别，直到500万年前，在人类身上的Fox P2基因发生突变，使得人类具有了语言能力。这大大提高了人类的协作效率。而Git的发明让人类在协作方式上又进一步获得飞跃。如果你是一个程">
+<meta name="twitter:image" content="http://yoursite.com/2018/10/img/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/10/24/Pro-Git-读书笔记系列专题/">
+
+
+
+
+
+  <title>Pro Git 读书笔记系列专题 | 无聊的生命 死也不要！</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">无聊的生命 死也不要！</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不可忽略积累的力量！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/24/Pro-Git-读书笔记系列专题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="二逼瓦西里">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无聊的生命 死也不要！">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Pro Git 读书笔记系列专题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-24T16:00:07+08:00">
+                2018-10-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>有效阅读是输入思想、写出笔记、总结脉络、输出见解的过程。        </p>
+</blockquote>
+<p>  大约7000万年前，人类和老鼠有共同的祖先并共享99%的基因和80%的遗传物质。在接下来的6500万年间，人类这个物种和其他物种并没有太大的区别，直到500万年前，在人类身上的Fox P2基因发生突变，使得人类具有了语言能力。这大大提高了人类的协作效率。而Git的发明让人类在协作方式上又进一步获得飞跃。如果你是一个程序员，你可以通过Git托管代码，记录每次版本的变化。如果你是一个UI设计师，你可以通过Git得知每一次图片的修改。如果你是一个演讲者你可以不断修改你的PPT，并随时切换你更想要的那个版本的修改。如果你是……..</p>
+<h2 id="Git简史"><a href="#Git简史" class="headerlink" title="Git简史"></a>Git简史</h2><p>  Git起源于Linux内核项⽬目，众所周知Linux内核有很多开发者维护，⽽大部分工作浪费在对代码合并修改补丁上。于是到2002年整个项目开始采用分布式版本控制系统 BitKeeper 来管理理和维护代码。<br>2005年以后开发BitKeeper 的商业公司与Linux内核项目的合约结束，他们收回了免费使⽤BitKeeper 的权⼒。于是Linux 的缔造者 Linus Torvalds开始开发⼀套⾃己的版本控制工具。于是Git就孕育而⽣了。<br><strong><em>Git有如下几个特点</em></strong></p>
+<ol>
+<li>速度快</li>
+<li>允许上千个并⾏开发的分⽀</li>
+<li>完全分布式</li>
+<li>有能⼒管理像Linux内核这样超⼤规模的项目(速度和数据量量)</li>
+</ol>
+<h2 id="版本控制系统的分类"><a href="#版本控制系统的分类" class="headerlink" title="版本控制系统的分类"></a>版本控制系统的分类</h2><h3 id="集中化的版本控制系统"><a href="#集中化的版本控制系统" class="headerlink" title="集中化的版本控制系统"></a>集中化的版本控制系统</h3><p><img src="../../img/1.png" alt="Central VCS Version"><br>在这类系统中都有一个单一的集中管理服务器。里面保存了每一次的文件变更记录。而协同工作的人，通过客户端与服务器相连接取出最新的文件或提交变更的文件。</p>
+<p>优点：</p>
+<ul>
+<li>管理员可以给每一个开发者分配不同的权限。而且在也不用像以前在本地客户端维护数据。</li>
+<li>每一个人在一定程度上都知道其他人正在做些什么。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>如果管理代码的服务器发生单点故障。比如宕机一个小时，那么在这一个小时内谁都无法提交或更新，也无法协同工作。如果服务器磁盘发生故障而又没有备份或备份不及时，就有丢失数据的风险。最坏的情况就是整个项目都有可能丢失。</li>
+</ul>
+<h3 id="分布式的版本控制系统"><a href="#分布式的版本控制系统" class="headerlink" title="分布式的版本控制系统"></a>分布式的版本控制系统</h3><p><img src="../../img/2.jpg" alt="Distributed Version Control System"></p>
+<p>只要一个项目放在单一服务器上就有可能有丢失的风险，于是分布式版本管理系统就诞生了。<br>不同的客户端从服务器上把项目下载下来，如果服务器发生宕机或磁盘损坏。客户端都可以从其他客户端进行恢复。因为客户端的每一次提取操作都是对服务器上的代码完整的备份。</p>
+<h2 id="Git的思想和工作原理"><a href="#Git的思想和工作原理" class="headerlink" title="Git的思想和工作原理"></a>Git的思想和工作原理</h2><h3 id="直接记录快照而非差异比较"><a href="#直接记录快照而非差异比较" class="headerlink" title="直接记录快照而非差异比较"></a>直接记录快照而非差异比较</h3><p>扩展：快照顾名思义就像事物的某一个时间点的照片（状态）。通过该照片可以恢复文件的全貌。备份是一种行为，快照是一种技术手段。通过文件快照的方式实现文件备份。<br>Git和其他版本控制系统的主要区别在于，Git只关心文件数据的整体是否发生变化，而其他大多数系统则只关心文件内容的具体差异。先了解其他系统的工作方式，更有助于理解Git的思想。</p>
+<p><img src="../../img/3.png" alt="Central feature"></p>
+<p>上幅图是其他版本控制工具的每个版本变化的具体差异。每个版本只保存文件变化的部分，这种方式是比较节省存储空间，但恢复备份的时候需要花费额外的时间计算。<br>Git并不保存这样差异变化的数据，而是把这些变化的文件作为快照存储在一个文件系统中。如下图</p>
+<p><img src="../../img/4.png" alt="Distributed feature"></p>
+<p>虚线表示当前版本没有变化的文件。实线表示变化后的文件。<br>每次提交更新时，也就是每一个版本都会把变化的文件作为一个快照，并保存该快照的一个索引。<br>在Git中当一个文件没有变化时，Git不会再次保存，而只对上次保存的文件做一个引用即可。</p>
+<h3 id="几乎所有的操作都是本地执行"><a href="#几乎所有的操作都是本地执行" class="headerlink" title="几乎所有的操作都是本地执行"></a>几乎所有的操作都是本地执行</h3><p>因为Git在本地磁盘上就保存了当前项目的所有历史更新，所以大多数操作只需访问本地资源，无需访问网络。如果你想知道当前版本与三个月之前的版本有何不同，Git会把三个月之前的版本和当前版本在本地进行差异计算。而不是先通过网络把三个月之前的版本下载下来再计算差异。</p>
+<h3 id="完整性校验"><a href="#完整性校验" class="headerlink" title="完整性校验"></a>完整性校验</h3><p>在Git中保存文件之前都会计算每个文件的哈希值（SHA-1）,所以只要文件有一丁点修改哈希值就会不一样。Git就知道了你修改了哪些文件。SHA-1哈希会产生一个160位的信息摘要，为了更方便表示通常用十六进制表示。形式如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">71fc320a3a62f65177857133d8b751fd897496c9</span><br></pre></td></tr></table></figure></p>
+<p>一个通用的设计优秀的哈希算法有如下特征：</p>
+<ul>
+<li>对输入数据极其敏感，哪怕有一个bit的数据不同，得到的哈希值也大相径庭。</li>
+<li>散列冲突的概率极其低，对不同的数据源，哈希值相同的概率极其低。</li>
+<li>从结果哈希值不能反向推导出原始数据。</li>
+<li>哈希算法执行效率要高效。对一段较大的数据能够很快计算出哈希值。<br>SHA-1都满足以上特征，所以Git也一以贯之的采用了该算法。</li>
+</ul>
+<h3 id="文件的三种状态-—-重要！重要！重要！"><a href="#文件的三种状态-—-重要！重要！重要！" class="headerlink" title="文件的三种状态 — 重要！重要！重要！"></a>文件的三种状态 — 重要！重要！重要！</h3><p>在Git中，任何文件只有三种状态：已暂存（staged）、已修改（modified）、已提交（committed）。已提交：表示该文件已经安全的保存在本地数据库中了。已修改：表示修改了某一个文件。已暂存：表示把已修改的文件放在下次要提交的文件清单中。<br>Git管理项目时，文件流传的三个工作区域：Git的工作目录，暂存区域，以及本地仓库。</p>
+<p><img src="../../img/5.png" alt="file stated"></p>
+<p>基本的Git工作流程如下：</p>
+<ol>
+<li>在工作目录中修改某个文件</li>
+<li>对修改后的文件进行快照，保存在暂存区域</li>
+<li>提交更新，将暂存区域的文件快照提交到Git目录</li>
+</ol>
+<p>如果文件的三种状态不明白，要反复读，直到明白为止。这个是核心、核心、核心！</p>
+<h2 id="配置Git"><a href="#配置Git" class="headerlink" title="配置Git"></a>配置Git</h2><p>安装好Git后（如果不会，自行百度或谷歌安装Git），需要配置一下自己的Git工作环境。配置只需要一次，以后升级时还会沿用现在的配置。也可以用相同的命令修改配置。<br>配置Git的环境变量以决定Git在各个环节具体的工作方式和行为，而配置这些环境变量可以用git config工具来配置。这些环境变量存放在以下三个地方：<br>（1）/etc/gitconfig文件：该文件对系统中所有用户都普遍适用的文件。如果用git config  工具时加–system选项，读写的就是该文件。<br>（2）~/.gitconfig文件：用户目录下的配置文件只适用于该用户。如果用git config 工具加–global选项，读写的就是该文件。<br>（3）当前项目中.git/config文件：这里的配置只对当前项目有效。每一个级别的配置都会覆盖上层相同的配置。所以.git/config的配置会覆盖/etc/gitconfig中的同名变量。</p>
+<p>配置用户名和邮箱地址，每次提交时都会引用用户名和邮箱地址，说明是谁提交了历史记录，并把该用户名和邮箱纳入历史记录中。<br>命令方式如下：<br> git config –global user.name ‘lifufa’<br> git config –global user.email <a href="mailto:&#39;1966591729@qq.com" target="_blank" rel="noopener">&#39;1966591729@qq.com</a>‘</p>
+<p>如果使用了–global那么配置的信息会保存在该用户目录下的配置文件里面。如果不加–global默认会加当前项目下的.git/config里面。</p>
+<p>查看配置信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --list</span><br></pre></td></tr></table></figure></p>
+<p>如本人的电脑：<br>lifufadeMacBook-Pro:CBankCustomer lifufa$ git config –list<br>credential.helper=osxkeychain<br>user.name=李付发<br><a href="mailto:user.email=18252786668@163.com" target="_blank" rel="noopener">user.email=18252786668@163.com</a><br>alias.lg=log –color –graph –pretty=format:’%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset’ –abbrev-commit<br>filter.lfs.clean=git-lfs clean – %f<br>filter.lfs.smudge=git-lfs smudge – %f<br>filter.lfs.process=git-lfs filter-process<br>filter.lfs.required=true<br>core.repositoryformatversion=0<br>core.filemode=true<br>core.bare=false<br>core.logallrefupdates=true<br>core.ignorecase=true<br>core.precomposeunicode=true</p>
+<p>Git使用默认的文本编辑器是vim，如果你想修改默认的编辑器。只需要执行如下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.editor  name(使用的文本编辑器名称)</span><br></pre></td></tr></table></figure></p>
+<p>Git在你需要输入信息时，就会调用你配置的文本编辑器。</p>
+<h2 id="使用Git管理项目"><a href="#使用Git管理项目" class="headerlink" title="使用Git管理项目"></a>使用Git管理项目</h2><h3 id="使用Git管理项目-1"><a href="#使用Git管理项目-1" class="headerlink" title="使用Git管理项目"></a>使用Git管理项目</h3><ol>
+<li><p>从现有的仓库克隆<br>服务器上有的数据克隆之后客户端也都有了，如果服务器上的磁盘发生故障，用任何一个克隆出来的客户端都能恢复服务器上的数据，回到当初克隆时的状态。<br>克隆的命令为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone URL（项目地址）</span><br></pre></td></tr></table></figure>
+<p>该命令会下载Git仓库的每一个文件以及所有的历史版本。<br>比如我在开源中国新建了一个Git仓库用于学习演练Git的使用。仓库名为LearnGit，地址为：<a href="mailto:git@gitee.com" target="_blank" rel="noopener">git@gitee.com</a>:18252786668/LearnGit.git<br>在你当前目录执行：git clone <a href="mailto:git@gitee.com" target="_blank" rel="noopener">git@gitee.com</a>:18252786668/LearnGit.git 就会创建一个LearnGit的项目，里面有一个.git文件。里面包含所有的历史版本。刚克隆时会取出最新的版本。如果想要在新克隆的项目用自己取的项目名字，可以在上面克隆命令后加上自己定义的项目名字：如<br><a href="mailto:git@gitee.com" target="_blank" rel="noopener">git@gitee.com</a>:18252786668/LearnGit.git myLearnGit<br>唯一的区别是新克隆的项目名字改成了myLearnGit其他的都一样。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone URL -b name(分支名)    //该命令是下载某一特定分支</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在工作目录中创建新的仓库</p>
+<p>在对现有的项目进行Git管理，把目录切换到该项目下，执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+<p> 初始化后，在当前目录下会生成一个.git文件。该文件里面有Git所需的数据和资源（后续会讲到里面都是什么东东）。如果我们项目里面有几个文件需要纳入版本控制，则需要用到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add</span><br></pre></td></tr></table></figure>
+<p> 该命令告诉Git开始对哪些文件进行跟踪，然后提交.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add a.txt</span><br><span class="line">git commit -m&quot;init project&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="Git基本使用"><a href="#Git基本使用" class="headerlink" title="Git基本使用"></a>Git基本使用</h3><p>  现在你可以新建一个Git项目来进行演练了，本人就用上面新建的LearnGit来演练Git的基本使用。<br>  工作目录下面的文件只有两种状态:已跟踪或未跟踪。<br>  已跟踪:指已经纳入版本控制的文件。在上次快照中有他们的记录，当你工作一段时间之后他们的状态可能是未更新、已修改或已放入暂存区域。初次克隆时，工作目录中的所有文件都属于已跟踪文件，且状态为未修改。<br>  未跟踪：他们既没有上次更新时的快照，也不在暂存区。<br>  Git文件的生命周期如下图：</p>
+<p><img src="../../img/6.png" alt="file lifecycle"></p>
+<ul>
+<li><p>查看文件的状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git  status  #该命令用于查看工作目录里面的哪些文件被跟踪哪些没有，使用命令时注意当前目录。</span><br></pre></td></tr></table></figure>
+<p>举个栗子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">lifufadeMacBook-Pro:LearnGit lifufa$ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up to date with &apos;origin/master&apos;.</span><br><span class="line"></span><br><span class="line">Untracked files:</span><br><span class="line">  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)</span><br><span class="line"></span><br><span class="line">	a.txt</span><br><span class="line"></span><br><span class="line">nothing added to commit but untracked files present (use &quot;git add&quot; to track)</span><br></pre></td></tr></table></figure>
+<p>如上在Untracked files下列出的文件都是未跟踪的文件。上面的a.txt文件为本人新建的一个文件。Git不会主动纳入跟踪范围里面，你需要告诉Git哪些要跟踪哪些不需要跟踪。<br><strong>当输入git status时，Git做了什么事情？</strong><br>当你从远程仓库克隆一份新的代码时，输入git status是没有任何输出的，原因是工作区、暂存区、历史区都相同。该命令比较的是工作区和暂存区以及暂存区和历史区之间的差异从而输出待暂存和待提交的列表展示你眼前。</p>
+</li>
+<li><p>跟踪新文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git  add #该命令后面可以是一个文件名或目录，如果是目录就会递归跟踪里面的所有文件。</span><br></pre></td></tr></table></figure>
+<p>注意点:该命令为多功能命令。根据目录或文件的不同，该命令的效果也会不一样。<br>(1) 可以用它跟踪新文件<br>(2) 把已跟踪的文件放到暂存区，比如新建一个文件用git add 跟踪后，然后修改，这时再查看状态发现为Changes not staged for commit。然后再次用git add 命令放入暂存区。<br>(3) 和并时把有冲突的文件标记为已解决的状态。<br>可以把该命令简单的理解为”把添加的内容放到下一次要提交的版本中”。当你对一个文件（比如文件a.txt）执行git add  a.txt命令后，如果又对a.txt文件进行了修改，此时如果直接提交。则后来修改的内容不会提交到历史记录中。因为每一次的git add 命令只是对当前文件的记录。每一次修改提交之前需要再次执行git add 命令，这样就会记录最新的文件。对于第三点解决冲突的文件标记为已解决很好理解，当我们遇到冲突时，一般会手动解决冲突，解决完后肯定对文件进行了修改。这样文件就变成了已修改状态，需要再次执行git add 命令暂存，这样在下次提交中就会体现解决冲突后的结果。<br>举个栗子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">lifufadeMacBook-Pro:LearnGit lifufa$ git add a.txt</span><br><span class="line">lifufadeMacBook-Pro:LearnGit lifufa$ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up to date with &apos;origin/master&apos;.</span><br><span class="line"></span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)</span><br><span class="line"></span><br><span class="line">	new file:   a.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>把加入暂存区的文件取消</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset name(要取消暂存的文件名) #该命令也不需要记忆，可以先敲git status 命令查看状态会有提示</span><br></pre></td></tr></table></figure>
+<p>后面会详细讲解git reset命令！</p>
+</li>
+<li><p>提交更新</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m&quot;这里写提交的日子信息&quot;</span><br></pre></td></tr></table></figure>
+<p>该命令会把暂存区里的文件提交。在执行该命令前最好先使用git status 命令，查看一下哪些文件已经暂存哪些没有。防止想要提交的文件没有加入暂存区。项目的每一次提交操作都是对项目的一次快照，以后可以随时切换每一次提交的状态。</p>
+</li>
+<li><p>跳过暂存区直接提交</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -a -m&quot;这里写提交的日子信息&quot;</span><br></pre></td></tr></table></figure>
+<p>该命令会把已经跟踪过的文件放在暂存区然后提交。没有跟踪过的文件不会提交。</p>
+</li>
+<li><p>查看两次提交的变化以及暂存和未暂存的修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff #对比暂存区与工作区之间的不同</span><br></pre></td></tr></table></figure>
+<p>比如我把a.txt文件随便加入11111，然后暂存，再添加22222。此时使用git diff查看有何不同。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">lifufadeMBP:LearnGit lifufa$ git diff</span><br><span class="line">diff --git a/a.txt b/a.txt</span><br><span class="line">index 56b6510..699568b 100644</span><br><span class="line">--- a/a.txt</span><br><span class="line">+++ b/a.txt</span><br><span class="line">@@ -1 +1,2 @@</span><br><span class="line">-11111</span><br><span class="line">\ No newline at end of file</span><br><span class="line">+11111</span><br><span class="line">+22222</span><br><span class="line">\ No newline at end of file</span><br></pre></td></tr></table></figure>
+<p>如果此时再把a.txt，执行git add a.txt 命令，然后使用git diff 查看发现什么都没有</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lifufadeMBP:LearnGit lifufa$ git add a.txt</span><br><span class="line">lifufadeMBP:LearnGit lifufa$ git diff</span><br><span class="line">lifufadeMBP:LearnGit lifufa$</span><br></pre></td></tr></table></figure>
+<p>因为此时暂存区和工作区没有什么不同。<br>为了更好理解此命令的用法，从网络上找了一个图片<br><img src="../../img/7.png" alt="git diff"></p>
+<p>把a.txt推倒远程分支后，再添加33333后执行如下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">lifufadeMBP:LearnGit lifufa$ git diff --cached</span><br><span class="line">diff --git a/a.txt b/a.txt</span><br><span class="line">index e69de29..699568b 100644</span><br><span class="line">--- a/a.txt</span><br><span class="line">+++ b/a.txt</span><br><span class="line">@@ -0,0 +1,2 @@</span><br><span class="line">+11111</span><br><span class="line">+22222</span><br><span class="line">\ No newline at end of file</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">lifufadeMBP:LearnGit lifufa$ git diff HEAD</span><br><span class="line">diff --git a/a.txt b/a.txt</span><br><span class="line">index e69de29..7ec99b8 100644</span><br><span class="line">--- a/a.txt</span><br><span class="line">+++ b/a.txt</span><br><span class="line">@@ -0,0 +1,3 @@</span><br><span class="line">+11111</span><br><span class="line">+22222</span><br><span class="line">+33333</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>撤销上次的提交</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend</span><br></pre></td></tr></table></figure>
+<p>从该命令的字面意思也可以猜测：修改提交的内容。<br>执行该命令会发生如下行为：</p>
+</li>
+</ul>
+<ol>
+<li>如果暂存区没有文件，就会直接弹出文本编辑器，写完日志后，覆盖上次提交的日志信息。这种场景通常是上次提交的日志信息不够浅显，想完善一下提交日志。</li>
+<li>如果暂存区有文件，会把暂存区里的文件也提交，顺便弹出文本编辑器，写完日志后，覆盖上次提交的日志信息。这种场景通常有些文件修改后忘记暂存，我们先暂存一下，然后执行该命令，将暂存区的文件提交也把上次的日志信息重新书写覆盖。</li>
+</ol>
+<ul>
+<li><p>把修改后的文件撤销<br>如果你修改一个文件比如a.txt,然后查询一下状态git status</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">lifufadeMBP:LearnGit lifufa$ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch and &apos;origin/master&apos; have diverged,</span><br><span class="line">and have 1 and 1 different commits each, respectively.</span><br><span class="line">  (use &quot;git pull&quot; to merge the remote branch into yours)</span><br><span class="line"></span><br><span class="line">Changes not staged for commit:</span><br><span class="line">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span><br><span class="line">  **(use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)**</span><br><span class="line"></span><br><span class="line">	modified:   a.txt</span><br></pre></td></tr></table></figure>
+<p>可以看到提示git checkout – <file>。告诉你执行该命令把工作区的修改废弃。<br>我们执行git checkout a.txt后刚刚修改的内容就不见了。</file></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>该命令会从指定的提交历史中把文件拷贝到暂存区和工作目录。比如：git checkout 68417b(为某次提交的SHA-1哈希值，每次提交都会有对应的哈希值)。就会把68417b对应的提交记录拷贝到暂存区和工作区。</li>
+<li>该命令如果后面不指定某次提交的历史。则默认把暂存区里面的文件拷贝到工作目录。比如：git checkout a.txt 就会把暂存区里面的文件拷贝到工作区。</li>
+<li>就是切换分支（后面会讲到）。<br><strong>注意点:在git中只要提交过的东西都是可以找回的。</strong></li>
+</ol>
+<h2 id="Git之必杀技–分支branch"><a href="#Git之必杀技–分支branch" class="headerlink" title="Git之必杀技–分支branch"></a>Git之必杀技–分支branch</h2>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/版本控制/" rel="tag"># 版本控制</a>
+          
+            <a href="/tags/Git/" rel="tag"># Git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/04/Linux/" rel="prev" title="Linux">
+                Linux <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">二逼瓦西里</p>
+              <p class="site-description motion-element" itemprop="description">放荡不羁爱自由！</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git简史"><span class="nav-number">1.</span> <span class="nav-text">Git简史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本控制系统的分类"><span class="nav-number">2.</span> <span class="nav-text">版本控制系统的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#集中化的版本控制系统"><span class="nav-number">2.1.</span> <span class="nav-text">集中化的版本控制系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式的版本控制系统"><span class="nav-number">2.2.</span> <span class="nav-text">分布式的版本控制系统</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git的思想和工作原理"><span class="nav-number">3.</span> <span class="nav-text">Git的思想和工作原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#直接记录快照而非差异比较"><span class="nav-number">3.1.</span> <span class="nav-text">直接记录快照而非差异比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#几乎所有的操作都是本地执行"><span class="nav-number">3.2.</span> <span class="nav-text">几乎所有的操作都是本地执行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完整性校验"><span class="nav-number">3.3.</span> <span class="nav-text">完整性校验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件的三种状态-—-重要！重要！重要！"><span class="nav-number">3.4.</span> <span class="nav-text">文件的三种状态 — 重要！重要！重要！</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Git"><span class="nav-number">4.</span> <span class="nav-text">配置Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Git管理项目"><span class="nav-number">5.</span> <span class="nav-text">使用Git管理项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Git管理项目-1"><span class="nav-number">5.1.</span> <span class="nav-text">使用Git管理项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git基本使用"><span class="nav-number">5.2.</span> <span class="nav-text">Git基本使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git之必杀技–分支branch"><span class="nav-number">6.</span> <span class="nav-text">Git之必杀技–分支branch</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">二逼瓦西里</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

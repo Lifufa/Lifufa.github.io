@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Linux,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Linux基本命令创建一个新的用户1useradd [name]  //name为要创建的用户名,该命令必须有root权限,输入该命令后会创建一个新的用户,不会让你输入要创建的新密码。 1passwd [name] //为name设置一个新的密码。同样需要root权限。 Linux系统有一切皆文件的概念模式,我们创建的用户存储在 /etc/passwd 文件中。可以使用cat命令查看文件的内容。组">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux">
+<meta property="og:url" content="http://yoursite.com/2019/04/04/Linux/index.html">
+<meta property="og:site_name" content="无聊的生命 死也不要！">
+<meta property="og:description" content="Linux基本命令创建一个新的用户1useradd [name]  //name为要创建的用户名,该命令必须有root权限,输入该命令后会创建一个新的用户,不会让你输入要创建的新密码。 1passwd [name] //为name设置一个新的密码。同样需要root权限。 Linux系统有一切皆文件的概念模式,我们创建的用户存储在 /etc/passwd 文件中。可以使用cat命令查看文件的内容。组">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/04/04/img/linux_0.png">
+<meta property="og:updated_time" content="2019-07-04T12:24:48.689Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux">
+<meta name="twitter:description" content="Linux基本命令创建一个新的用户1useradd [name]  //name为要创建的用户名,该命令必须有root权限,输入该命令后会创建一个新的用户,不会让你输入要创建的新密码。 1passwd [name] //为name设置一个新的密码。同样需要root权限。 Linux系统有一切皆文件的概念模式,我们创建的用户存储在 /etc/passwd 文件中。可以使用cat命令查看文件的内容。组">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/04/img/linux_0.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/04/Linux/">
+
+
+
+
+
+  <title>Linux | 无聊的生命 死也不要！</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">无聊的生命 死也不要！</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不可忽略积累的力量！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/04/Linux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="二逼瓦西里">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无聊的生命 死也不要！">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-04T10:59:46+08:00">
+                2019-04-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Linux基本命令"><a href="#Linux基本命令" class="headerlink" title="Linux基本命令"></a>Linux基本命令</h2><h3 id="创建一个新的用户"><a href="#创建一个新的用户" class="headerlink" title="创建一个新的用户"></a>创建一个新的用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd [name]  //name为要创建的用户名,该命令必须有root权限,输入该命令后会创建一个新的用户,不会让你输入要创建的新密码。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd [name] //为name设置一个新的密码。同样需要root权限。</span><br></pre></td></tr></table></figure>
+<p>Linux系统有一切皆文件的概念模式,我们创建的用户存储在 /etc/passwd 文件中。可以使用cat命令查看文件的内容。组信息在/etc/group文件中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#cat /etc/passwd</span><br><span class="line"></span><br><span class="line">root:x:0:0:root:/root:/bin/bash</span><br><span class="line">lifufa:x:1000:1000:lifufa,,,:/home/lifufa:/bin/bash</span><br><span class="line">lff:x:1001:1001::/home/lff:/bin/sh</span><br><span class="line"></span><br><span class="line">#cat /etc/group</span><br><span class="line">root:x:0:</span><br><span class="line">lifufa:x:1000:</span><br><span class="line">lff:x:1001:</span><br></pre></td></tr></table></figure></p>
+<p>passwd文件中第一列:为用户名、第二列:x为密码,密码当然不能直接显示在这里。 第三列:为用户ID、第四列：组ID。第五列:/root、/home/lff、/home/lifufa分别为对应用户的主目录。主目录是用户登录进去后默认的路径。第六列:/bin/bash用于配置登录后的默认交互方式。/bin/bash为解析器程序,这样的程序有很多种,可根据需要配置你想要的交互命令程序,一般为/bin/bash。</p>
+<h2 id="文件基本属性"><a href="#文件基本属性" class="headerlink" title="文件基本属性"></a>文件基本属性</h2><p>Linux是一种典型的多用户系统,不同的用户拥有不同的地位,享有不同的权限,Linux系统对于不同的用户访问不同的文件或目录做了严格的限制。<br>列出当前目录的文件我们使用ls字面意思为list。ls -l 表示以列表的形式列出文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#ls -l</span><br><span class="line"></span><br><span class="line">-rw-rw-r--  1 lifufa lifufa       0 4月   4 11:39  test.txt</span><br><span class="line">drwxr-xr-x  2 lifufa lifufa    4096 7月  31  2018  公共的</span><br><span class="line">drwxr-xr-x  2 lifufa lifufa    4096 7月  31  2018  模板</span><br><span class="line">drwxr-xr-x  2 lifufa lifufa    4096 7月  31  2018  视频</span><br><span class="line">drwxr-xr-x  2 lifufa lifufa    4096 7月  31  2018  图片</span><br><span class="line">-rw-r--r--  1 lifufa lifufa    8213 8月  26  2018 &apos;未命名 1.odt&apos;</span><br><span class="line">drwxr-xr-x  2 lifufa lifufa    4096 7月  31  2018  文档</span><br><span class="line">drwxr-xr-x  2 lifufa lifufa    4096 8月   9  2018  下载</span><br><span class="line">drwxr-xr-x  2 lifufa lifufa    4096 7月  31  2018  音乐</span><br><span class="line">drwxr-xr-x  6 lifufa lifufa    4096 9月  25  2018  桌面</span><br></pre></td></tr></table></figure>
+<p>上面的每一行的前十个字符的含义如下图所示:</p>
+<p><img src="../img/linux_0.png" alt="Distributed Version Control System"></p>
+<p>第一个字符代表文件的类型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">d 表示目录</span><br><span class="line">- 表示文件</span><br><span class="line">/ 表示连接文档</span><br></pre></td></tr></table></figure></p>
+<p>接下来的字符以三个为一组,且均为rwx的组合。r代表可读read、w代表可写write、x代表可执行execute,而且这三个的位置是固定的,如果没有权限就用-号代替。</p>
+<p><strong>chmod命令用于改变文件权限</strong></p>
+<p><strong>Linux更改文件属性有两种方式:</strong><br><strong>第一种：使用数字、</strong><br><strong>第二种：使用符号。</strong></p>
+<p><strong>先看第一种数字:</strong></p>
+<p>在上图中属主权限、属组权限、其他权限中,rwx对应的权限数字分别为:4、2、1。<br>每种身份(owner/group/others)各自的三个权限(r/w/x)数字是需要累加的,例如当权限为： [-rwxrwx—] 分数则是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">owner = rwx = 4+2+1 = 7</span><br><span class="line">group = rwx = 4+2+1 = 7</span><br><span class="line">others= --- = 0+0+0 = 0</span><br></pre></td></tr></table></figure></p>
+<p><strong>chmod命令的语法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chmod [-R] xyz 文件或目录</span><br><span class="line">说明：</span><br><span class="line">   -R : 进行递归(recursive)的持续变更，亦即连同次目录下的所有文件都会变更</span><br><span class="line">   xyz : 就是刚刚提到的数字类型的权限属性，为 rwx 属性数值的相加。</span><br></pre></td></tr></table></figure>
+<p>eg:<br>比如当前目录下有一个a.txt文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#ls -l</span><br><span class="line">-rw-rw-r-- 1 lifufa lifufa 0 4月   4 17:04 a.txt</span><br></pre></td></tr></table></figure></p>
+<p>当前的文件权限为：user 可读可写不可执行、group为：可读可写不可执行、other 可读不可写不可执行。</p>
+<p>我们想对user增加执行权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#chmod 764 a.txt</span><br><span class="line">#ls -l</span><br><span class="line">-rwxrw-r-- 1 lifufa lifufa 0 4月   4 17:04 a.txt</span><br></pre></td></tr></table></figure></p>
+<p>这种方式以直接操做数字的方式修改权限。</p>
+<p><strong>第二种：使用符合的方式</strong></p>
+<p>我们常用大写或小写字符U表示属主user、G表示属组group、O表示其他人other、A表示所有人all。</p>
+<p>eg:我们对属组用户增加执行权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#chmod g+x a.txt</span><br><span class="line">#ls -l</span><br><span class="line">-rwxrwxr-- 1 lifufa lifufa 0 4月   4 17:04 a.txt</span><br></pre></td></tr></table></figure></p>
+<p>+表示增加的意思,后面跟要增加的权限字母。比如w、r、x。</p>
+<p>eg:对属主去除可写权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#chmod u-w a.txt</span><br><span class="line">#ls -l</span><br><span class="line">-r-xrwxr-- 1 lifufa lifufa 0 4月   4 17:04 a.txt</span><br></pre></td></tr></table></figure>
+<p>-号表示去除的意思,后面也跟相应的权限字符。比如：w、r、x。</p>
+<p>eg:对属主用户设定可读可写可执行权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#chmod u=rwx a.txt</span><br><span class="line">#ls -l</span><br><span class="line">-rwxrwxr-- 1 lifufa lifufa 0 4月   4 17:04 a.txt</span><br></pre></td></tr></table></figure>
+<p>=表示设定的意思。后面跟想要设定的权限字符。=后面有什么字符代表设定相应的权限。</p>
+<p>eg:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#chmod u=x a.txt</span><br><span class="line">#ls -l</span><br><span class="line">---xrwxr-- 1 lifufa lifufa 0 4月   4 17:04 a.txt</span><br></pre></td></tr></table></figure></p>
+<p>eg:去除所有人的执行权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#chmod a-x a.txt</span><br><span class="line">#ls -l</span><br><span class="line">----rw-r-- 1 lifufa lifufa 0 4月   4 17:04 a.txt</span><br></pre></td></tr></table></figure></p>
+<p><strong>文件</strong></p>
+<p>查看文件内容我们用: cat, less ,more ,tail等命令，需要给文件赋予r权限，否则不能读。</p>
+<p>修改文件内容:我们用vim，vi 需要给文件赋予rw权限，否则不能修改。<br>让文件具有可执行能力：需要给文件赋予，rx权限。</p>
+<p><strong>目录</strong></p>
+<p>进入一个目录: cd 需要给目录一个x权限</p>
+<p>查看一个目录以及子目录：ls 需要给文件rx权限</p>
+<p>在目录下创建、删除一个文件或目录：mkdir ,rm 需要给文件wx权限。 </p>
+<p>umask:权限掩码，默认的权限掩码为（0022）后三位为权限值。<br>每个文件或目录都有默认的权限：<br>目录默认的权限值为：777-权限掩码的值（022默认） = 755（rwxr-xr-x）<br>文件默认的权限值为：666-权限掩码的值（022默认）= 644(rw-r—r–)<br>你可以新创文件尝试以下<br>我们也可以修改umask的值：umask  权限值  。比如 ：umask 033<br>查看umask的值，直接在终端敲umask即可。</p>
+<p><strong>which查看命令所在的路径</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ which ls</span><br><span class="line">/bin/ls</span><br></pre></td></tr></table></figure></p>
+<p><strong>pwd查看当前所在的路径</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pwd</span><br><span class="line">/home/lifufa</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.  代表当前所在的目录</span><br><span class="line">.. 代表上一级目录</span><br></pre></td></tr></table></figure>
+<p><strong>mkdir 创建目录</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir aa  #创建目录aa</span><br><span class="line"></span><br><span class="line">$ mkdir -p aa/bb/cc #带p参数表示连同父目录一起创建</span><br></pre></td></tr></table></figure></p>
+<p><strong>只包含 . 和 .. 的目录为空目录</strong></p>
+<p>rmdir 删除空目录 如果目录不为空则删除不了</p>
+<p><strong>删除文件或者目录我们通常使用rm 命令</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ rm test.txt  #删除文件</span><br><span class="line">$ rm abc </span><br><span class="line">rm: 无法删除&apos;abc&apos;: 是一个目录  #删除目录删除不了,必须加-r参数,表示递归删除</span><br><span class="line">$ rm -r abc</span><br><span class="line">rm：是否删除有写保护的普通空文件 &apos;abc/a.txt&apos;？ y</span><br><span class="line"></span><br><span class="line">$ rm -rf abc #强制删除abc目录</span><br></pre></td></tr></table></figure>
+<p><strong>touch</strong></p>
+<ul>
+<li><p>如果文件不存在则创建一个文件。</p>
+</li>
+<li><p>如果文件已经存在则更新访问及修改文件为当前时间。</p>
+</li>
+</ul>
+<p><strong>mv 移动文件或重命名文件</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ mv a.txt b.txt  #a.txt 命名为b.txt</span><br><span class="line"></span><br><span class="line">$ mv b.txt aa/    #移动b.txt 到aa/下面</span><br><span class="line"></span><br><span class="line">$ mv b.txt ../a.txt  # 移动b.txt 到上一级目录并重命名为a.txt</span><br></pre></td></tr></table></figure>
+<p><strong>cp 拷贝</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ cp a.txt b.txt  # 拷贝a.txt 为b.txt</span><br><span class="line">$ cp aa bb </span><br><span class="line">cp: -r not specified; omitting directory &apos;aa&apos; </span><br><span class="line">#注意如果拷贝目录时,要加一个参数 -r 递归拷贝</span><br><span class="line">$ cp aa bb -r  #这样才能拷贝目录</span><br><span class="line"></span><br><span class="line">基本格式为</span><br><span class="line">cp [source]  [destination] #拷贝文件</span><br><span class="line">cp [source]  [destination] -r #拷贝目录</span><br></pre></td></tr></table></figure></p>
+<p><strong>find 查找文件</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">基本常用格式</span><br><span class="line">find [path] -name ‘fileName’ #path 在哪个路径下查找、fileName查找的文件名</span><br><span class="line">注意：默认递归查找</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$ find . -name &apos;*.odt&apos;</span><br><span class="line">find: ‘./.local/share/Trash/files/dailyfresh.4’: 权限不够</span><br><span class="line">find: ‘./.local/share/Trash/files/dailyfresh.3’: 权限不够</span><br><span class="line">./未命名 1.odt</span><br><span class="line">./桌面/start_file.odt</span><br><span class="line"></span><br><span class="line">#上面表示在当前目录下查找以.odt结尾的文件</span><br><span class="line">上面报了权限不够要以root权限才能访问该文件。</span><br><span class="line"></span><br><span class="line">$ sudo find . -name &apos;*.odt&apos;</span><br><span class="line">[sudo] lifufa 的密码： </span><br><span class="line">./未命名 1.odt</span><br><span class="line">./桌面/start_file.odt</span><br><span class="line"></span><br><span class="line">如果在根目录下查找</span><br><span class="line">find / -name &apos;要查找的文件名&apos;</span><br></pre></td></tr></table></figure>
+<p><strong>grep 在文件里面查找内容</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">常用格式</span><br><span class="line">grep [要查找的内容] [要查找的路径] -R</span><br><span class="line">注意：grep命令默认不是递归查找,加-R表示递归查找</span><br><span class="line"></span><br><span class="line">$ grep &apos;this is&apos; . -R</span><br><span class="line">./a.txt:this is a.txt file</span><br><span class="line"></span><br><span class="line">$ grep &apos;this is&apos; a.txt -i</span><br><span class="line">this is a.txt file</span><br><span class="line">-i表示不区分大小写</span><br></pre></td></tr></table></figure></p>
+<h2 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">sudo fdisk -l   #用于查看磁盘信息</span><br><span class="line"></span><br><span class="line">Disk /dev/sda：52.8 GiB，56723767296 字节，110788608 个扇区</span><br><span class="line">单元：扇区 / 1 * 512 = 512 字节</span><br><span class="line">扇区大小(逻辑/物理)：512 字节 / 512 字节</span><br><span class="line">I/O 大小(最小/最佳)：512 字节 / 512 字节</span><br><span class="line">磁盘标签类型：dos</span><br><span class="line">磁盘标识符：0xbb635866</span><br><span class="line"></span><br><span class="line">设备       启动  起点      末尾      扇区  大小 Id 类型</span><br><span class="line">/dev/sda1  *     2048 110786559 110784512 52.8G 83 Linux</span><br><span class="line"></span><br><span class="line">#/dev/sda1  为设备名</span><br><span class="line"></span><br><span class="line">$ ls -l /dev/sda</span><br><span class="line">brw-rw---- 1 root disk 8, 0 4月  13 19:26 /dev/sda  #以b开头说明为块设备，即为硬盘或优盘、该处为硬盘</span><br></pre></td></tr></table></figure>
+<p>如果我想进入 /dev/sda1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd /dev/sda</span><br><span class="line">-bash: cd: /dev/sda: 不是目录</span><br></pre></td></tr></table></figure></p>
+<p>进不去就没有办法操作里面的文件。这时就引入了挂载，我们可以把/dev/sda挂载到某个目录下，比如挂载到/abc目录下，这时/dev/sda里面的所有文件都被放在/abc目录下面了。/abc以前的文件会被隐藏，当卸载后/abc里面的内容才会可见，当查看/abc目录里面的内容时，发现和/dev/sda里面的内容一样。当挂载后我们可以进入/abc目录来操纵里面的内容。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo mount /dev/sda /abc  #把sda挂载到/abc目录下，此时操作/abc目录就是操作/dev/sda</span><br><span class="line">$ sudo umount /abc #卸载</span><br></pre></td></tr></table></figure>
+<h3 id="tar-命令"><a href="#tar-命令" class="headerlink" title="tar 命令"></a>tar 命令</h3><p>该命令有很多选项、常用选项如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tar cvf [新的名称].tar  [目录]</span><br><span class="line">$ tar cvf aa.tar aa  #打包aa目录并命名为aa.tar</span><br><span class="line"></span><br><span class="line">#解归档</span><br><span class="line">$ tar xvf aa.tar #解归档</span><br><span class="line"># tar xvf [].tar.gz -C dir  注意选项C要大写 </span><br><span class="line">$ tar xvf aa.tar -C ./bb  #把aa.tar 解归档到./bb目录下</span><br></pre></td></tr></table></figure></p>
+<p>上面只是归档并没有压缩、我们压缩并归档使用如下命令、开发中最常用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ tar zcvf aa.tar.gz aa  #把目录aa 归档并压缩为aa.tar.gz。注意命名以.tar.gz结尾</span><br><span class="line">$ tar zxvf aa.tar.gz  #解归档和压缩</span><br><span class="line"></span><br><span class="line">#解归档压缩到指定目录</span><br><span class="line"># tar zxvf [].tar.gz -C dir  注意选项C要大写 </span><br><span class="line">tar zxvf aa.tar.gz -C ./bb # 把aa.tar.gz 解压缩到./bb目录下。</span><br></pre></td></tr></table></figure></p>
+<p>打bz2压缩包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar jcvf dir.tar.bz2  dir #压缩为bz2格式的归档包,该命令把dir目录归档压缩为dir.tar.bz2</span><br><span class="line">tar jxvf dir.tar.bz2  #解压缩为bz2格式的包</span><br></pre></td></tr></table></figure></p>
+<p><strong>打包压缩为rar的格式</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rar a -r newdir.rar dir  #打包dir 为newdir.rar格式</span><br><span class="line"></span><br><span class="line">rar x newdir.rar    #解包</span><br></pre></td></tr></table></figure></p>
+<p><strong>zip</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">zip -r newdir.zip dir #打包dir 为newdir.zip</span><br><span class="line"></span><br><span class="line">unzip newdir.zip  #解压缩</span><br></pre></td></tr></table></figure></p>
+<h3 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps [选项]</span><br></pre></td></tr></table></figure>
+<p>ps命令用于监控后台进程的工作情况，因为后台进程不与屏幕、键盘、鼠标这些输入输出设备进行通信的，所以如果需要检测起情况可以使用该命令。选项有很多，掌握一些常用命令即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ ps aux  #列出该电脑所有进程以及各进程的信息</span><br><span class="line"></span><br><span class="line">USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND</span><br><span class="line">root         1  0.0  0.1 160300  9704 ?        Ss   06:54   0:09 /sbin/init spla</span><br><span class="line">root         2  0.0  0.0      0     0 ?        S    06:54   0:00 [kthreadd]</span><br><span class="line">root         4  0.0  0.0      0     0 ?        I&lt;   06:54   0:00 [kworker/0:0H]</span><br><span class="line">root         6  0.0  0.0      0     0 ?        I&lt;   06:54   0:00 [mm_percpu_wq]</span><br><span class="line">root         7  0.0  0.0      0     0 ?        S    06:54   0:01 [ksoftirqd/0]</span><br><span class="line">root         8  0.0  0.0      0     0 ?        I    06:54   0:04 [rcu_sched]</span><br><span class="line">root         9  0.0  0.0      0     0 ?        I    06:54   0:00 [rcu_bh]</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ ps ajx</span><br><span class="line"></span><br><span class="line">USER               PID  PPID  PGID   SESS JOBC STAT   TT       TIME COMMAND</span><br><span class="line">root                 1     0     1      0    0 Ss     ??    1:32.73 /sbin/launc</span><br><span class="line">root                62     1    62      0    0 Ss     ??    0:05.98 /usr/sbin/s</span><br><span class="line"></span><br><span class="line">#USER 用户  PID 进程ID   PPID父进程ID  PGID祖进程ID</span><br></pre></td></tr></table></figure>
+<p><strong>jobs</strong><br>该命令用于查看当前的进程哪些被暂停<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$ cat</span><br><span class="line">hello</span><br><span class="line">hello</span><br><span class="line">x</span><br><span class="line">x</span><br><span class="line">^Z</span><br><span class="line">[1]+  已停止               cat  #按control + z键暂停</span><br><span class="line"></span><br><span class="line">$ jobs</span><br><span class="line">[1]+  已停止               cat</span><br><span class="line"></span><br><span class="line">#恢复使用</span><br><span class="line"></span><br><span class="line">$ fg 1  #恢复1号进程也就是上面的1号</span><br><span class="line"></span><br><span class="line">#fg命令使程序唤醒到前台运行。</span><br><span class="line">#bg命令使程序放到后台运行</span><br></pre></td></tr></table></figure></p>
+<h3 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h3><p>向指定进程发送信号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">$ kill -l</span><br><span class="line"></span><br><span class="line"> 1) SIGHUP	 2) SIGINT	 3) SIGQUIT	 4) SIGILL	 5) SIGTRAP</span><br><span class="line"> 2) SIGABRT	 7) SIGBUS	 8) SIGFPE	 9) SIGKILL	10) SIGUSR1</span><br><span class="line">1)  SIGSEGV	12) SIGUSR2	13) SIGPIPE	14) SIGALRM	15) SIGTERM</span><br><span class="line">2)  SIGSTKFLT	17) SIGCHLD	18) SIGCONT	19) SIGSTOP	20) SIGTSTP</span><br><span class="line">3)  SIGTTIN	22) SIGTTOU	23) SIGURG	24) SIGXCPU	25) SIGXFSZ</span><br><span class="line">4)  SIGVTALRM	27) SIGPROF	28) SIGWINCH	29) SIGIO	30) SIGPWR</span><br><span class="line">5)  SIGSYS	34) SIGRTMIN	35) SIGRTMIN+1	36) SIGRTMIN+2	37) SIGRTMIN+3</span><br><span class="line">6)  SIGRTMIN+4	39) SIGRTMIN+5	40) SIGRTMIN+6	41) SIGRTMIN+7	42) SIGRTMIN+8</span><br><span class="line">7)  SIGRTMIN+9	44) SIGRTMIN+10	45) SIGRTMIN+11	46) SIGRTMIN+12	47) SIGRTMIN+13</span><br><span class="line">8)  SIGRTMIN+14	49) SIGRTMIN+15	50) SIGRTMAX-14	51) SIGRTMAX-13	52) SIGRTMAX-12</span><br><span class="line">9)  SIGRTMAX-11	54) SIGRTMAX-10	55) SIGRTMAX-9	56) SIGRTMAX-8	57) SIGRTMAX-7</span><br><span class="line">10) SIGRTMAX-6	59) SIGRTMAX-5	60) SIGRTMAX-4	61) SIGRTMAX-3	62) SIGRTMAX-2</span><br><span class="line">11) SIGRTMAX-1	64) SIGRTMAX	</span><br><span class="line"></span><br><span class="line">前32个信号为Unix经典信号,后面32个信号一般做底层驱动开发时会用到。</span><br><span class="line">当我们按Ctrl+C时就会向该进程发送一个SIGINT的信号，使进程终止。</span><br><span class="line"></span><br><span class="line">SIGSEGV为段错误，比如像一块只读区域去修改数据时，就会向该进程发送一个segement fault 段错误。一般向内存非法操作都会报段错误。</span><br><span class="line"></span><br><span class="line">SIGSTOP 暂停信号</span><br><span class="line">SIGCONT 把暂停的信号恢复</span><br></pre></td></tr></table></figure></p>
+<p>一个命令之所以在哪里都能使用是因为把该命令加入到了$PATH环境变量中了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ echo $PATH   #打印环境变量信息 冒号表示并列的意思</span><br><span class="line"></span><br><span class="line">/Users/lifufa/.rvm/gems/ruby-2.6.0-preview2/bin:/Users/lifufa/.rvm/gems/ruby-2.6.0-preview2@global/bin:/Users/lifufa/.rvm/rubies/ruby-2.6.0-preview2/bin:/anaconda3/bin:/Library/Frameworks/Python.framework/Versions/3.6/bin:/Library/Frameworks/Python.framework/Versions/3.6/bin:/Library/Frameworks/Python.framework/Versions/3.6/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/usr/local/mysql/bin:/usr/local/mysql/bin:/Users/lifufa/localsoft/apache-tomcat-9.0.0.M21/bin:/usr/local/go/bin:/Users/lifufa/.rvm/bin</span><br></pre></td></tr></table></figure></p>
+<p>小知识：在终端中，怎么快速把光标移动最前面。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl + a</span><br></pre></td></tr></table></figure></p>
+<p><strong>配置环境变量</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">方式一：修改当前用户目录家目录下面的 .bashrc 文件</span><br><span class="line">vim ~/.bashrc</span><br><span class="line">#在.bashrc 加入下面的代码 $PATH为把以前的环境变量内容取出来，冒号后面加上要配置的路径</span><br><span class="line">export PATH=&quot;$PATH:要配置的路径&quot;</span><br><span class="line"></span><br><span class="line">上面这种方式只对当前用户有效，如果我们系统有很多用户就需要采用下面方法。</span><br><span class="line"></span><br><span class="line">方式二：配置系统环境变量，配置时需要有root权限。</span><br><span class="line">vim /etc/profile</span><br><span class="line">export PATH=&quot;$PATH:要配置的路径&quot;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/24/Pro-Git-读书笔记系列专题/" rel="next" title="Pro Git 读书笔记系列专题">
+                <i class="fa fa-chevron-left"></i> Pro Git 读书笔记系列专题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">二逼瓦西里</p>
+              <p class="site-description motion-element" itemprop="description">放荡不羁爱自由！</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux基本命令"><span class="nav-number">1.</span> <span class="nav-text">Linux基本命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建一个新的用户"><span class="nav-number">1.1.</span> <span class="nav-text">创建一个新的用户</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件基本属性"><span class="nav-number">2.</span> <span class="nav-text">文件基本属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#磁盘管理"><span class="nav-number">3.</span> <span class="nav-text">磁盘管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tar-命令"><span class="nav-number">3.1.</span> <span class="nav-text">tar 命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ps"><span class="nav-number">3.2.</span> <span class="nav-text">ps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kill"><span class="nav-number">3.3.</span> <span class="nav-text">kill</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">二逼瓦西里</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
